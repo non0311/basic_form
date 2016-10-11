@@ -1,0 +1,94 @@
+<?php include_once('./header.html'); ?>
+
+<!--コンテンツ-->
+<div id="content2">
+<section>
+<ul class="bread clearfix">
+<li><a href="index.html">HOME</a></li>
+<li>　＞　</li>
+<li class="orange">お問合わせ</li>
+</ul>
+<figure class="m0"><img src="images/contact/title.jpg" class="pc"><img src="images/contact/title_smp.jpg" class="smp"></figure>
+</section>
+
+<!--コンテンツのコンテンツ-->
+<div class="bg_wh">
+<section>
+<div class="maincontent2 pv">
+<figure class="mb20 mt0"><img src="images/contact/step2.png"></figure>
+
+<p class="red size14">まだお問合わせは送信されていません。</p>
+<p>以下の内容でよろしければ「送信する」ボタンを押してください。<br>
+変更する場合「入力内容を修正する」ボタンを押して入力画面に戻り、再度内容を記載してください。</p>
+
+<form action="./contact.php" method="post">
+<table border="0" cellpadding="0" cellspacing="0" class="contact">
+<tr>
+  <th>お問合せ内容</th>
+  <td>
+  <?php e(h($contact_type[$form['contact_type']]));?>
+  </td>
+</tr>
+<tr>
+  <th>御社名</th>
+  <td><?php e(h(@$form['company']));?>
+  </td>
+</tr>
+<tr>
+  <th>氏名</th>
+  <td><?php e(h(@$form['person']));?>
+  </td>
+</tr>
+<tr>
+  <th>メールアドレス</th>
+  <td><?php e(h(@$form['mail']));?>
+  </td>
+</tr>
+<tr>
+  <th>電話番号</th>
+  <td><?php e(h(@$form['tel']));?>
+  </td>
+</tr>
+<tr>
+  <th>郵便番号</th>
+  <td>
+    <?php if(!empty($form['zip'])):?>〒 <?php e(h(@$form['zip']));?><?php else:?>未記入<?php endif;?>
+  </td>
+</tr>
+<tr>
+  <th>住所</th>
+  <td><?php if(!empty($form['address'])):?><?php e(h(@$form['address']));?><?php else:?>未記入<?php endif;?>
+  </td>
+</tr>
+<tr>
+  <th>お問合せ詳細</th>
+  <td><?php if(!empty($form['content'])):?><?php e(nl2br(h(@$form['content'])));?><?php else:?>未記入<?php endif;?>
+  </td>
+</tr>
+</table>
+
+<figure class="mt40 mb0">
+<div class="back" onclick="$('#back').val('1');$('form').submit();"><img src="images/contact/btn002.png"></div>
+<input type="hidden" value="0" name="back" id="back" />
+<input type="image" src="images/contact/btn003.png">
+<input type="hidden" value="1" name="send" />
+</figure>
+
+<?php foreach($form as $k => $v):?>
+  <input type="hidden" name="<?php e(h($k));?>" value="<?php e(h($v));?>" />
+<?php endforeach;?>
+
+</form>
+
+
+</div>
+</section>
+</div>
+<!--コンテンツのコンテンツ-->
+
+
+
+</div>
+<!--コンテンツ-->
+
+<?php include_once('./footer.html'); ?>

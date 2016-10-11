@@ -1,0 +1,140 @@
+<?php include_once('./header.html'); ?>
+
+<script type="text/javascript" src="http://ajaxzip3.googlecode.com/svn/trunk/ajaxzip3/ajaxzip3.js" async="async"></script>
+
+<script>
+$(function() {
+  $("#tel, #zip").change(function(){
+    var str = $(this).val();
+    str = str.replace( /[０-９]/g, function(s) {
+      return String.fromCharCode(s.charCodeAt(0) - 65248);
+    });
+    str = str.replace( /[^0-9]/g, '');
+    $(this).val(str);
+  });
+});
+
+function setAddr() {
+  AjaxZip3.zip2addr(
+    'zip',
+    '',
+    'address',
+    'address'
+  );
+}
+</script>
+
+
+<!--コンテンツ-->
+<div id="content2">
+<section>
+<ul class="bread clearfix">
+<li><a href="index.html">HOME</a></li>
+<li>　＞　</li>
+<li class="orange">お問合わせ</li>
+</ul>
+<?php /*
+<figure class="m0"><img src="images/contact/title.jpg" class="pc"><img src="images/contact/title_smp.jpg" class="smp"></figure>
+*/?>
+</section>
+
+<!--コンテンツのコンテンツ-->
+<div class="bg_wh">
+<section>
+<div class="maincontent2 pv">
+
+<h3 class="policy mb20">お問合わせ</h3>
+
+<figure class="mb20 mt0"><img src="images/contact/step1.png"></figure>
+
+<p>どんなことでもお気軽にお問い合わせください。<strong>1営業日以内</strong>にご連絡いたします。<br>
+お電話（<?php echo $tel;?>）でのお問い合わせ：月～金曜 10:00-19:00 
+</p>
+
+
+<form action="./contact.php" method="post">
+<table border="0" cellpadding="0" cellspacing="0" class="contact">
+<tr>
+  <th><dl class="contact_th"><dt>お問合せ内容</dt><dd>必須</dd></dl></th>
+  <td>
+  <?php foreach($contact_type as $k => $v):?>
+    <label>
+    <input type="radio" name="contact_type" value="<?php e($k);?>" 
+    <?php if(@$form['contact_type'] == $k):?>
+      checked="checked"<?php endif;?>
+       /><?php e($v);?>
+       </label><br>
+  <?php endforeach;?>
+  </td>
+</tr>
+<tr>
+  <th><dl class="contact_th"><dt>御社名</dt><dd>必須</dd></dl></th>
+  <td><input type="text" name="company" size="30" class="ws" value="<?php e(h(@$form['company']));?>" />
+  <br>例）株式会社◯◯
+  <?php if(!empty($error['company'])):?><br><span class="err"><?php e(h($error['company']));?></span><?php endif;?>
+  </td>
+</tr>
+<tr>
+  <th><dl class="contact_th"><dt>氏名</dt><dd>必須</dd></dl></th>
+  <td><input type="text" name="person" size="30" class="ws" value="<?php e(h(@$form['person']));?>" />
+  <br>例）田中　一郎
+  <?php if(!empty($error['person'])):?><br><span class="err"><?php e(h($error['person']));?></span><?php endif;?>
+  </td>
+</tr>
+<tr>
+  <th><dl class="contact_th"><dt>メールアドレス</dt><dd>必須</dd></dl></th>
+  <td><input type="text" name="mail" size="30" class="ws" value="<?php e(h(@$form['mail']));?>" />
+  <br>例）info@△△.co.jp
+  <?php if(!empty($error['mail'])):?><br><span class="err"><?php e(h($error['mail']));?></span><?php endif;?>
+  </td>
+</tr>
+<tr>
+  <th><dl class="contact_th"><dt>電話番号</dt><dd>必須</dd></dl></th>
+  <td><input type="text" name="tel" size="30" class="ws" value="<?php e(h(@$form['tel']));?>" id="tel" />
+  <br>例）<?php echo $tel;?>, <?php echo str_replace('-','',$tel);?>
+  <?php if(!empty($error['tel'])):?><br><span class="err"><?php e(h($error['tel']));?></span><?php endif;?>
+  </td>
+</tr>
+<tr>
+  <th><dl class="contact_th"><dt>郵便番号</dt></dl></th>
+  <td>
+    <input type="text" name="zip" size="10" class="wss" value="<?php e(h(@$form['zip']));?>" id="zip" />
+    <input type="button" value="住所自動入力" onclick="setAddr(this)" />
+    <br>例）150-0011, 1500011
+    <?php if(!empty($error['zip'])):?><br><span class="err"><?php e(h($error['zip']));?></span><?php endif;?>
+  </td>
+</tr>
+<tr>
+  <th><dl class="contact_th"><dt>住所</dt></dl></th>
+  <td><input type="text" name="address" size="30" class="wl" value="<?php e(h(@$form['address']));?>" />
+    <br>例）港区麻布十番1-1-15 ビア東京 7F
+  </td>
+</tr>
+<tr>
+  <th><dl class="contact_th"><dt>お問合せ詳細</dt></dl></th>
+  <td><textarea name="content" cols="30" rows="10" class="wl"><?php e(h(@$form['content']));?></textarea>
+  </td>
+</tr>
+</table>
+
+<p>
+お問い合わせにあたりまして「<a style="color:#0000ff" href="/policy.html" target="_blank">プライバシーポリシー</a>」にご同意ください。
+</p>
+
+<figure class="mt40 mb0">
+<input type="image" src="images/contact/btn001.png">
+</figure>
+</form>
+
+
+</div>
+</section>
+</div>
+<!--コンテンツのコンテンツ-->
+
+
+
+</div>
+<!--コンテンツ-->
+
+<?php include_once('./footer.html'); ?>
