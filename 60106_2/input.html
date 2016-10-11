@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>form</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<form action="./" method="post">
+<table>
+
+<tr>
+	<th class="hissu">お問合せ内容</th>
+	<td>
+		<input type="radio" name="content_type" value="0" 
+		<?php if(@$form['content_type'] == "0"):?>checked="checked"
+<?php endif;?> />サービスに関するお問い合わせ<br>
+
+		<input type="radio" name="content_type" value="1" 
+		<?php if(@$form['content_type'] == "1"):?>checked="checked"
+<?php endif;?> />お見積りについて<br>
+
+		<input type="radio" name="content_type" value="2" 
+		<?php if(@$form['content_type'] == "2"):?>checked="checked"
+<?php endif;?> />採用への応募
+	</td>
+</tr>
+
+<tr>
+	<th class="hissu">御社名</th>
+	<td>
+		<input type="text" name="company" size="30" class="h30" 
+		value="<?php echo @$form['company'];?>"/><br>
+		例）株式会社◯◯<br>
+		<font color="red"><?php echo @$error['company'];?></font>
+	</td>
+</tr>
+
+<tr>
+	<th class="hissu">氏名</th>
+	<td>
+		<input type="text" name="user_name" size="30" class="h30" 
+		value="<?php echo @$form['user_name'];?>"/><br>
+		例）田中　一郎<br>
+		<font color="red"><?php echo @$error['user_name'];?></font>
+	</td>
+</tr>
+
+<tr>
+	<th class="hissu">メールアドレス</th>
+	<td>
+		<input type="text" name="mail" size="30" class="h30" value="<?php echo @$form['mail'];?>"/><br>
+		例）info@◯◯.co.jp<br>
+		<font color="red"><?php echo @$error['mail'];?></font>
+	</td>
+</tr>
+
+<tr>
+	<th class="hissu">電話番号</th>
+	<td>
+		<input type="text" name="tel" size="30" class="h30" value="<?php echo @$form['tel'];?>"/><br>
+		例）03-3333-4444, 0333334444<br>
+		<font color="red"><?php echo @$error['tel'];?></font>
+	</td>
+</tr>
+
+<tr>
+	<th>郵便番号</th>
+	<td>
+		<input type="text" name="yubin" size="30" class="h30" value="<?php echo @$form['yubin'];?>"/><br>
+		例）150-0011, 1500011<br>
+		<font color="red"><?php echo @$error['yubin'];?></font>
+	</td>
+</tr>
+
+<tr>
+	<th>住所</th>
+	<td>
+		<input type="text" name="stay" size="30" class="h30" 
+		value="<?php echo @$form['stay'];?>"/><br>
+		例）港区麻布十番1-1-11 ビア 7F
+	</td>
+</tr>
+
+<tr>
+	<th>お問合せ詳細</th>
+	<td>
+		<textarea name="contact" rows="10" cols="30" size="30" />
+			<?php echo @$form['contact'];?>
+		</textarea>
+	</td>
+</tr>
+
+</table>
+
+<input type="submit" value="送信" class="submit" />
+
+</form>
+
+</body>
+</html>

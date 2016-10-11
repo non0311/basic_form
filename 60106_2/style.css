@@ -1,0 +1,55 @@
+charset "utf-8"
+
+body{
+	margin: 10px;
+	color: red;
+	background-color: #555;
+	font-size: 8px;
+}
+
+table,td,th{
+	border: 1px solid #555;
+	border-collapse:collapse
+}
+
+table{
+width:90%;
+margin-left: auto;
+margin-right: auto;
+background-color: #fff;
+}
+
+tr{
+	height: 80px;
+}
+
+th{
+	font-style: bold;
+	background-color: #ccc;
+	text-align: left;
+	padding: 10px;
+}
+
+td{
+	padding: 10px;
+}
+
+textarea{
+	width: 100%;
+}
+.h30{
+	height: 30px;
+	width:70%;
+}
+
+.hissu:after {
+content:"必須";
+float: right;
+color: white;
+background-color: orange;
+}
+
+.submit{
+	display: block;
+	margin:50px auto 0;
+}
