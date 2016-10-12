@@ -61,6 +61,10 @@ echo "採用について";
     <input type="hidden" name="back" id="back" value="0" />
     <input type="hidden" name="send" id="send" value="0" />
 
+    <?php foreach($form as $k => $v):?>
+    <input type="hidden" name="<?php echo $k;?>" value="<?php echo $v;?>" />
+    <?php endforeach ;?>
+
 </form>
 
 </body>
