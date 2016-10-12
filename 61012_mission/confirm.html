@@ -10,35 +10,82 @@
     <table>
         <tr>
             <th>単価</th>
-            <td></td>
+            <td>
+                <?php echo $form['tanka'];?>
+            </td>
         </tr>
         <tr>
             <th>個数</th>
-            <td></td>
+            <td>
+                <?php echo $form['int'];?>
+            </td>
         </tr>
         <tr>
             <th>性別</th>
-            <td></td>
+            <td>
+                <?php
+                if($form['gender'] == "man"){
+                    echo "男性";
+                }
+                if($form['gender'] == "woman"){
+                    echo "女性";
+                }
+                ?>
+            </td>
         </tr>
         <tr>
             <th>チェック</th>
-            <td></td>
+            <td>
+                <?php
+                if ($form['twenty']){
+                    echo "20歳以上である";
+                }
+                ?>
+            </td>
         </tr>
         <tr>
             <th>配送方法</th> <!--プルダウンメニュー-->
-            <td></td>
+            <td>
+                <?php
+                if($form['delivery'] == "0"){
+                    echo "ゆうパック";
+                }
+                if($form['delivery'] == "1"){
+                    echo "クロネコ";
+                }
+                if($form['delivery'] == "2"){
+                    echo "佐川急便";
+                }
+                ?>
+            </td>
         </tr>
         <tr>
             <th>配送日</th>
-            <td></td>
+            <td>
+                <?php echo $form['date'];?>
+            </td>
         </tr>
         <tr>
             <th>婚歴</th> <!--複数選択不可のリストボックス-->
-            <td></td>
+            <td>
+                <?php
+                if($form['married'] == "0"){
+                    echo "独身";
+                }
+                if($form['married'] == "1"){
+                    echo "既婚";
+                }
+                if($form['married'] == "2"){
+                    echo "バツ";
+                }
+                ?>
+            </td>
         </tr>
         <tr>
             <th>メモ</th>
-            <td></td>
+            <td>
+                <?php echo nl2br($form['memo']);?>
+            </td>
         </tr>
     </table>
 
