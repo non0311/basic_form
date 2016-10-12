@@ -91,11 +91,16 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
+    <!--<input type="submit" name="back" value="戻る" class="submit" />-->
+    <!--<input type="submit" name="send" value="決定" class="submit" />-->
+
+    <?php print_r($form); ?>
+
     <input type="button" value="決定" class="submit" onclick="$('#send').val('1');this.form.submit();"/>
     <input type="button" value="戻る" class="submit" onclick="$('#back').val('1');this.form.submit();"/>
 
-    <input type="hidden" name="back" id="back" value="0" />
-    <input type="hidden" name="send" id="send" value="0" />
+    <input type="hidden" name="back" id="back"/>
+    <input type="hidden" name="send" id="send"/>
 
     <?php foreach($form as $k => $v):?>
     <input type="hidden" name="<?php echo $k;?>" value="<?php echo $v;?>" />
