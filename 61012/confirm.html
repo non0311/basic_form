@@ -1,0 +1,71 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>確認画面</title>
+</head>
+<body>
+
+<form action="./" method="post">
+    <table>
+
+        <tr>
+            <th class="hissu">お問合せ内容</th>
+            <td>
+                <?php if($form['content_type'] == "0"){
+echo "サービスについて";
+}
+if($form['content_type'] == "1"){
+echo "お見積りについて";
+}
+if($form['content_type'] == "2"){
+echo "採用について";
+}
+?>
+            </td>
+        </tr>
+
+        <tr>
+            <th class="hissu">御社名</th>
+            <td>
+                <?php echo $form['company'];?>
+            </td>
+        </tr>
+
+        <tr>
+            <th class="hissu">電話番号</th>
+            <td>
+                <?php echo $form['tel'];?>
+            </td>
+        </tr>
+
+        <tr>
+            <th class="hissu">メールアドレス</th>
+            <td>
+                <?php echo $form['mail'];?>
+            </td>
+        </tr>
+
+        <tr>
+            <th>お問合せ詳細</th>
+            <td>
+                <?php echo nl2br($form['contact']);?>
+            </td>
+        </tr>
+
+    </table>
+
+    <input type="button" value="戻る" class="submit" onclick="$('#back').val('1');this.form.submit();" />
+    <input type="button" value="送信" class="submit" onclick="$('#send').val('1');this.form.submit();" />
+
+    <input type="hidden" name="back" id="back" value="0" />
+    <input type="hidden" name="send" id="send" value="0" />
+
+    <?php foreach($form as $k => $v):?>
+    <input type="hidden" name="<?php echo $k;?>" value="<?php echo $v;?>" />
+    <?php endforeach ;?>
+
+</form>
+
+</body>
+</html>
