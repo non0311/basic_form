@@ -19,14 +19,21 @@ if (!empty($_POST)){
     }
 
 
-    // エラーがあったら
+    // エラーがあったら or 戻るボタンを押したら
     // もう一度inputへいきexitする
-    if (!empty($error)) {
+    if (!empty($error) || !empty($form['back']) ) {
         include_once("input.html");
         exit;
     }
-    //エラーがなければ確認画面へ遷移
-    include_once("confirm.html");
+    //上記if分で、エラーがなければ or 送信ボタンを押してなかったら
+    //確認画面へ遷移
+    if (empty($form['send'])) {
+        include_once("confirm.html");
+        exit;
+    }
+
+    //確認画面から送信ボタンを押したら、正常終了の証
+    echo "send";
     exit;
 
 } //if (!empty($_POST))
