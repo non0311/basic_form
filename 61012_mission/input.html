@@ -11,10 +11,12 @@
         <tr>
             <th>単価</th>
             <td><input type="text" name="tanka" value="<?php echo @$form['tanka'];?>" id=""></td>
+            <font color="red"><?php echo @$error['tanka'];?></font>
         </tr>
         <tr>
             <th>個数</th>
             <td><input type="text" name="int" value="<?php echo @$form['int'];?>" id=""></td>
+            <font color="red"><?php echo @$error['int'];?></font>
         </tr>
         <tr>
             <th>性別</th>
@@ -52,6 +54,7 @@
         <tr>
             <th>配送日</th>
             <td><input type="date" name="date" value="<?php echo @$form['date'];?>"></td>
+            <font color="red"><?php echo @$error['date'];?></font>
         </tr>
         <tr>
             <th>婚歴</th> <!--複数選択不可のリストボックス-->
