@@ -22,6 +22,7 @@
             <td>
                 <input type="text" name="company" value="<?php echo @$form['company'];?>"><br>
                 例:株式会社〇〇<br>
+                <font color="red"><?php echo @$error['company'];?></font>
             </td>
         </tr>
 
@@ -30,6 +31,7 @@
             <td>
                 <input type="text" name="tel" value="<?php echo @$form['tel'];?>"><br>
                 例: 03-3456-7777 , 0334567777<br>
+                <font color="red"><?php echo @$error['tel'];?></font>
             </td>
         </tr>
 
@@ -38,6 +40,7 @@
             <td>
                 <input type="text" name="mail" value="<?php echo @$form['mail'];?>"><br>
                 例: info@△△.co.jp<br>
+                <font color="red"><?php echo @$error['mail'];?></font>
             </td>
         </tr>
 
