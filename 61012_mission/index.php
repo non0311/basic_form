@@ -20,4 +20,18 @@ if (empty($form['date'])) {
     $error['date']="必須";
 }
 
+// エラーがあったらもう一度inputへ
+if (!empty($error) ) {
+    include_once("input.html");
+    exit;
+}else{
+    //エラーなければ確認画面へ
+    include_once("confirm.html");
+    exit;
+}
+
+
+
+
+
 
