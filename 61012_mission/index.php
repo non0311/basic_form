@@ -30,8 +30,3 @@ if (!empty($error) ) {
     exit;
 }
 
-
-
-
-
-
