@@ -10,13 +10,17 @@
     <table>
         <tr>
             <th>単価</th>
-            <td><input type="text" name="tanka" value="<?php echo @$form['tanka'];?>" id=""></td>
-            <font color="red"><?php echo @$error['tanka'];?></font>
+            <td>
+                <input type="text" name="tanka" value="<?php echo @$form['tanka'];?>" id="">
+                <font color="red"><?php echo @$error['tanka'];?></font>
+            </td>
         </tr>
         <tr>
             <th>個数</th>
-            <td><input type="text" name="int" value="<?php echo @$form['int'];?>" id=""></td>
-            <font color="red"><?php echo @$error['int'];?></font>
+            <td>
+                <input type="text" name="int" value="<?php echo @$form['int'];?>" id="">
+                <font color="red"><?php echo @$error['int'];?></font>
+            </td>
         </tr>
         <tr>
             <th>性別</th>
@@ -53,8 +57,10 @@
         </tr>
         <tr>
             <th>配送日</th>
-            <td><input type="date" name="date" value="<?php echo @$form['date'];?>"></td>
-            <font color="red"><?php echo @$error['date'];?></font>
+            <td>
+                <input type="date" name="date" value="<?php echo @$form['date'];?>">
+                <font color="red"><?php echo @$error['date'];?></font>
+            </td>
         </tr>
         <tr>
             <th>婚歴</th> <!--複数選択不可のリストボックス-->
