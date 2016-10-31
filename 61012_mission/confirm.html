@@ -1,0 +1,112 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>確認画面</title>
+</head>
+<body>
+
+<form action="./" method="post">
+
+    <table>
+        <tr>
+            <th>単価</th>
+            <td>
+                <?php echo $form['tanka'];?>
+            </td>
+        </tr>
+        <tr>
+            <th>個数</th>
+            <td>
+                <?php echo $form['int'];?>
+            </td>
+        </tr>
+        <tr>
+            <th>性別</th>
+            <td>
+                <?php
+                if($form['gender'] == "man"){
+                    echo "男性";
+                }
+                if($form['gender'] == "woman"){
+                    echo "女性";
+                }
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <th>チェック</th>
+            <td>
+                <?php
+                if ($form['twenty']){
+                    echo "20歳以上である";
+                }
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <th>配送方法</th> <!--プルダウンメニュー-->
+            <td>
+                <?php
+                if($form['delivery'] == "0"){
+                    echo "ゆうパック";
+                }
+                if($form['delivery'] == "1"){
+                    echo "クロネコ";
+                }
+                if($form['delivery'] == "2"){
+                    echo "佐川急便";
+                }
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <th>配送日</th>
+            <td>
+                <?php echo $form['date'];?>
+            </td>
+        </tr>
+        <tr>
+            <th>婚歴</th> <!--複数選択不可のリストボックス-->
+            <td>
+                <?php
+                if($form['married'] == "0"){
+                    echo "独身";
+                }
+                if($form['married'] == "1"){
+                    echo "既婚";
+                }
+                if($form['married'] == "2"){
+                    echo "バツ";
+                }
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <th>メモ</th>
+            <td>
+                <?php echo nl2br($form['memo']);?>
+            </td>
+        </tr>
+    </table>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <!--<input type="submit" name="back" value="戻る" class="submit" />-->
+    <!--<input type="submit" name="send" value="決定" class="submit" />-->
+
+    <?php print_r($form); ?>
+
+    <input type="button" value="決定" class="submit" onclick="$('#send').val('1');this.form.submit();"/>
+    <input type="button" value="戻る" class="submit" onclick="$('#back').val('1');this.form.submit();"/>
+
+    <input type="hidden" name="back" id="back"/>
+    <input type="hidden" name="send" id="send"/>
+
+    <?php foreach($form as $k => $v):?>
+    <input type="hidden" name="<?php echo $k;?>" value="<?php echo $v;?>" />
+    <?php endforeach ;?>
+
+</form>
+
+</body>
+</html>

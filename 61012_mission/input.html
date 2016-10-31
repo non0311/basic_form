@@ -1,0 +1,93 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>入力画面</title>
+</head>
+<body>
+
+<form action="./" method="post">
+
+    <table>
+        <tr>
+            <th>単価</th>
+            <td>
+                <input type="text" name="tanka" value="<?php echo @$form['tanka'];?>" id="">
+                <font color="red"><?php echo @$error['tanka'];?></font>
+            </td>
+        </tr>
+        <tr>
+            <th>個数</th>
+            <td>
+                <input type="text" name="int" value="<?php echo @$form['int'];?>" id="">
+                <font color="red"><?php echo @$error['int'];?></font>
+            </td>
+        </tr>
+        <tr>
+            <th>性別</th>
+            <td><input type="radio" name="gender" value="man" <?php if(@$form['gender'] == "man"):?>checked="checked"
+                <?php endif;?>
+                >男性<br>
+                <input type="radio" name="gender" value="woman" <?php if(@$form['gender'] == "woman"):?>checked="checked"
+                <?php endif;?>
+                >女性
+            </td>
+        </tr>
+        <tr>
+            <th>チェック</th>
+            <td><input type="checkbox" name="twenty" <?php if(@$form['twenty'] == "on"):?>checked="checked"
+                <?php endif;?>
+                >
+                20歳以上である</td>
+        </tr>
+        <tr>
+            <th>配送方法</th> <!--プルダウンメニュー-->
+            <td>
+                <select name="delivery" id="">
+                    <option value="0" <?php if(@$form['delivery'] == "0"):?>selected
+                    <?php endif;?>
+                    >ゆうパック</option>
+                    <option value="1" <?php if(@$form['delivery'] == "1"):?>selected
+                    <?php endif;?>
+                    >クロネコ</option>
+                    <option value="2" <?php if(@$form['delivery'] == "2"):?>selected
+                    <?php endif;?>
+                    >佐川急便</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>配送日</th>
+            <td>
+                <input type="date" name="date" value="<?php echo @$form['date'];?>">
+                <font color="red"><?php echo @$error['date'];?></font>
+            </td>
+        </tr>
+        <tr>
+            <th>婚歴</th> <!--複数選択不可のリストボックス-->
+            <td>
+                <select name="married" size="3" id="">
+                    <option value="0" <?php if(@$form['married'] == "0"):?>selected
+                    <?php endif;?>>独身</option>
+                    <option value="1" <?php if(@$form['married'] == "1"):?>selected
+                    <?php endif;?>>既婚</option>
+                    <option value="2" <?php if(@$form['married'] == "2"):?>selected
+                    <?php endif;?>>バツ</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>メモ</th>
+            <td>
+                <textarea name="memo" id="" cols="30" rows="10">
+                    <?php echo @$form['memo'];?>
+                </textarea>
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="確認" class="submit" />
+
+</form>
+
+</body>
+</html>
